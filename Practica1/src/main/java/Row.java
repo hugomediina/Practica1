@@ -2,21 +2,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Row {
-    public List<Double> data;
+    private List<Double> data;
     public Row(){
         data=new ArrayList<>();
     }
     public List<Double> getData() {
         return data;
     }
-
-    @Override
-    public String toString() {
-        String constructor_cadena = "";
-        for(int i=0;i<data.size()-1;i++){    //SE PUEDE MEJORAR MUCHO
-            constructor_cadena=constructor_cadena+data.get(i)+',';
+    public Row addRow(String[] linea_separada, Row fila){
+        for(String palabra:linea_separada){
+            fila.data.add(Double.parseDouble(palabra));
         }
-        constructor_cadena=constructor_cadena + data.get(data.size()-1);
-        return constructor_cadena;
+        return fila;
     }
 }
