@@ -5,8 +5,9 @@ import java.util.Scanner;
 
 public class CSV {
     public Table readTable(String fichero) throws FileNotFoundException {
+        String separador = File.separator;
         Table tabla=new Table();
-        Scanner sc=new Scanner(new File(fichero));
+        Scanner sc=new Scanner(new File("Practica1"+separador+fichero));
         int contador=0;
         while(sc.hasNext()){
             String[] linea_separada=sc.next().split(",");
