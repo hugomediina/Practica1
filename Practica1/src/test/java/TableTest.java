@@ -36,4 +36,16 @@ class TableTest {
     void getEjemplares() {
         assertEquals(25,tabla.getEjemplares());
     }
+
+    @Test
+    void testGetRowAt() {
+    }
+
+    @Test
+    void addHeaders() {
+    }
+
+    @Test
+    void addLine() {
+    }
 }
