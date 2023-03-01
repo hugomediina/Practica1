@@ -31,4 +31,9 @@ class TableWithLabelsTest {
     @Test
     void getLabelsToIndex() {
     }
+
+    @Test
+    void getEjemplares() {
+        assertEquals(150,table.getEjemplares());
+    }
 }

@@ -1,6 +1,7 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
+import java.util.SimpleTimeZone;
 
 public class CSV {
     public Table readTable(String fichero) throws FileNotFoundException {
@@ -15,8 +16,10 @@ public class CSV {
             }
             else{
                 Row fila=new Row();
-                Row nueva_fila = fila.addRow(linea_separada, fila);
-                tabla.addLine(nueva_fila);
+                for(String elemento:linea_separada){
+                    fila.addRow(Double.valueOf(elemento));
+                }
+                tabla.addLine(fila);
             }
         }
         sc.close();
@@ -35,17 +38,19 @@ public class CSV {
                 contador++;
             }else{
                 RowWithLabel fila = new RowWithLabel();
-                RowWithLabel nueva_fila= (RowWithLabel) fila.addRow(linea_separada,fila);
+                for(int i=0;i<=linea_separada.length-1;i++){
+                    fila.addRow(Double.parseDouble(linea_separada[i]));
+                }
                 String etiqueta = linea_separada[linea_separada.length - 1];
                 if (!tabla.getLabelsToIndex().containsKey(etiqueta)) {
-                    nueva_fila.addNumberClass(numberClass);
+                    fila.addNumberClass(numberClass);
                     tabla.addLabelsToIndex(etiqueta,numberClass);
                     contador++;
                 } else {
                     numberClass = tabla.getLabelsToIndex().get(etiqueta);
                     fila.addNumberClass(numberClass);
                 }
-                tabla.addLine(nueva_fila);
+                tabla.addLine(fila);
             }
         }
         sc.close();

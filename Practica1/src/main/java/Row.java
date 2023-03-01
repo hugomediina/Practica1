@@ -9,10 +9,7 @@ public class Row {
     public List<Double> getData() {
         return data;
     }
-    public Row addRow(String[] linea_separada, Row fila){
-        for(String palabra:linea_separada){
-            fila.data.add(Double.parseDouble(palabra));
-        }
-        return fila;
+    public void addRow(Double n){
+        data.add(n);
     }
 }

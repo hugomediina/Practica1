@@ -17,4 +17,7 @@ public class TableWithLabels extends Table{
     public Map<String, Integer> getLabelsToIndex() {
         return labelsToIndex;
     }
+    public int getEjemplares() {
+        return super.getEjemplares();
+    }
 }
