@@ -1,7 +1,6 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
-import java.util.SimpleTimeZone;
 
 public class CSV {
     public Table readTable(String fichero) throws FileNotFoundException {
@@ -32,16 +31,16 @@ public class CSV {
         int contador = 0;
         int numberClass=0;
         while (sc.hasNext()){
-            String [] linea_separada= sc.next().split(",");
+            String [] linea_separada= sc.nextLine().split(",");
             if(contador==0){
                 tabla.addHeaders(linea_separada);
                 contador++;
             }else{
                 RowWithLabel fila = new RowWithLabel();
-                for(int i=0;i<=linea_separada.length-1;i++){
+                String etiqueta = linea_separada[linea_separada.length - 1];
+                for(int i=0;i<linea_separada.length-1;i++){
                     fila.addRow(Double.parseDouble(linea_separada[i]));
                 }
-                String etiqueta = linea_separada[linea_separada.length - 1];
                 if (!tabla.getLabelsToIndex().containsKey(etiqueta)) {
                     fila.addNumberClass(numberClass);
                     tabla.addLabelsToIndex(etiqueta,numberClass);
