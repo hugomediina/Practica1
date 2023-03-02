@@ -28,21 +28,21 @@ class TableWithLabelsTest {
         cabecera.add("class");
 
         linea0=new ArrayList<>();
-        linea0.add(5.4);
-        linea0.add(3.9);
-        linea0.add(1.7);
-        linea0.add(0.4);
+        linea0.add(5.0);
+        linea0.add(3.6);
+        linea0.add(1.4);
+        linea0.add(0.2);
 
         linea1=new ArrayList<>();
-        linea1.add(5.4);
-        linea1.add(3.9);
-        linea1.add(1.3);
+        linea1.add(5.7);
+        linea1.add(4.4);
+        linea1.add(1.5);
         linea1.add(0.4);
 
         linea2=new ArrayList<>();
-        linea2.add(4.4);
-        linea2.add(2.9);
-        linea2.add(1.4);
+        linea2.add(5.0);
+        linea2.add(3.4);
+        linea2.add(1.5);
         linea2.add(0.2);
     }
 

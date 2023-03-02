@@ -29,6 +29,7 @@ class KNNTest {
 
         table=myCSV.readTableWithLabels("iris.csv");
         myKNN.train(table);
+
         linea0_source.add(5.4);
         linea0_source.add(3.9);
         linea0_source.add(1.3);

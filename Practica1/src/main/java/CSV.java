@@ -31,7 +31,7 @@ public class CSV {
         Scanner sc = new Scanner(new File(fichero));
         int contador = 0;
         int numberClass=0;
-        while (sc.hasNextLine()){
+        while (sc.hasNext()){
             String [] linea_separada= sc.nextLine().split(",");
             if(contador==0){
                 tabla.addHeaders(linea_separada);
@@ -46,7 +46,6 @@ public class CSV {
                     numberClass++;
                     fila.addNumberClass(numberClass);
                     tabla.addLabelsToIndex(etiqueta,numberClass);
-                    contador++;
                 } else {
                     numberClass = tabla.getLabelsToIndex().get(etiqueta);
                     fila.addNumberClass(numberClass);
