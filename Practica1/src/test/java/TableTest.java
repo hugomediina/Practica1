@@ -49,7 +49,7 @@ class TableTest {
 
     @Test
     void getFilas() {
-        assertEquals(25,tabla.getLineas().size());
+        assertEquals(25,tabla.getRows().size());
     }
 
     @Test

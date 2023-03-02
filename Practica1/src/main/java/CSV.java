@@ -26,11 +26,12 @@ public class CSV {
     }
 
     public TableWithLabels readTableWithLabels(String fichero) throws FileNotFoundException{
+        String separador=File.separator;            //PONER EN TODOS
         TableWithLabels tabla= new TableWithLabels();
         Scanner sc = new Scanner(new File(fichero));
         int contador = 0;
         int numberClass=0;
-        while (sc.hasNext()){
+        while (sc.hasNextLine()){
             String [] linea_separada= sc.nextLine().split(",");
             if(contador==0){
                 tabla.addHeaders(linea_separada);

@@ -67,7 +67,7 @@ class TableWithLabelsTest {
     }
     @Test //Número de filas leido
     void getFilas() {
-        assertEquals(149,table.getLineas().size());
+        assertEquals(150,table.getRows().size());
     }
     @Test //Número de columnas leido
     void getColumnas() {

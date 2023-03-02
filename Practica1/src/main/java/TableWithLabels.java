@@ -5,6 +5,7 @@ public class TableWithLabels extends Table{
     private Map<String,Integer> labelsToIndex;
 
     public TableWithLabels(){
+        super();
         this.labelsToIndex=new HashMap<>();
     }
     @Override
