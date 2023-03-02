@@ -19,7 +19,12 @@ public class Table {
     public void addLine(Row nueva_fila){
         lineas.add(nueva_fila);
     }
-    public int getEjemplares(){
-        return lineas.size();
+
+    public List<String> getHeaders() {
+        return headers;
+    }
+
+    public List<Row> getLineas() {
+        return lineas;
     }
 }

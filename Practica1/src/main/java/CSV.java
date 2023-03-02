@@ -42,6 +42,7 @@ public class CSV {
                     fila.addRow(Double.parseDouble(linea_separada[i]));
                 }
                 if (!tabla.getLabelsToIndex().containsKey(etiqueta)) {
+                    numberClass++;
                     fila.addNumberClass(numberClass);
                     tabla.addLabelsToIndex(etiqueta,numberClass);
                     contador++;
