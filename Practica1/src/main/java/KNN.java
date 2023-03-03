@@ -1,4 +1,3 @@
-import javax.sql.rowset.RowSetWarning;
 import java.util.List;
 
 public class KNN {

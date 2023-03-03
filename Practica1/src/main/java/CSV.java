@@ -4,8 +4,9 @@ import java.util.Scanner;
 
 public class CSV {
     public Table readTable(String fichero) throws FileNotFoundException {
+        String separator= File.separator;
         Table tabla=new Table();
-        Scanner sc=new Scanner(new File(fichero));
+        Scanner sc=new Scanner(new File("src"+separator+fichero));
         int contador=0;
         while(sc.hasNext()){
             String[] linea_separada = sc.next().split(",");
@@ -26,9 +27,9 @@ public class CSV {
     }
 
     public TableWithLabels readTableWithLabels(String fichero) throws FileNotFoundException{
-        String separador=File.separator;            //PONER EN TODOS
+        String separator=File.separator;
         TableWithLabels tabla= new TableWithLabels();
-        Scanner sc = new Scanner(new File(fichero));
+        Scanner sc = new Scanner(new File("src"+separator+fichero));
         int contador = 0;
         int numberClass=0;
         while (sc.hasNext()){
