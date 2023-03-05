@@ -12,12 +12,12 @@ public class Table {
     public Row getRowAt(int n){
         return rows.get(n);
     }
-    public void addHeaders(String[] linea_separada){
-        List<String> linea= Arrays.asList(linea_separada);
-        headers.addAll(linea);
+    public void addHeaders(String[] choppedLine){
+        List<String> line= Arrays.asList(choppedLine);
+        headers.addAll(line);
     }
-    public void addLine(Row nueva_fila){
-        rows.add(nueva_fila);
+    public void addLine(Row newLine){
+        rows.add(newLine);
     }
 
     public List<String> getHeaders() {

@@ -3,58 +3,58 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class CSV {
-    public Table readTable(String fichero) throws FileNotFoundException {
+    public Table readTable(String file) throws FileNotFoundException {
         String separator= File.separator;
-        Table tabla=new Table();
-        Scanner sc=new Scanner(new File("src"+separator+fichero));
-        int contador=0;
+        Table table=new Table();
+        Scanner sc=new Scanner(new File("src"+separator+file));
+        int count=0;
         while(sc.hasNext()){
-            String[] linea_separada = sc.next().split(",");
-            if(contador==0){
-                tabla.addHeaders(linea_separada);
-                contador++;
+            String[] choppedLine = sc.next().split(",");
+            if(count==0){
+                table.addHeaders(choppedLine);
+                count++;
             }
             else{
-                Row fila=new Row();
-                for(String elemento:linea_separada){
-                    fila.addRow(Double.valueOf(elemento));
+                Row row=new Row();
+                for(String element:choppedLine){
+                    row.addRow(Double.valueOf(element));
                 }
-                tabla.addLine(fila);
+                table.addLine(row);
             }
         }
         sc.close();
-        return tabla;
+        return table;
     }
 
-    public TableWithLabels readTableWithLabels(String fichero) throws FileNotFoundException{
+    public TableWithLabels readTableWithLabels(String file) throws FileNotFoundException{
         String separator=File.separator;
-        TableWithLabels tabla= new TableWithLabels();
-        Scanner sc = new Scanner(new File("src"+separator+fichero));
-        int contador = 0;
+        TableWithLabels table= new TableWithLabels();
+        Scanner sc = new Scanner(new File("src"+separator+file));
+        int count = 0;
         int numberClass=0;
         while (sc.hasNext()){
-            String [] linea_separada= sc.nextLine().split(",");
-            if(contador==0){
-                tabla.addHeaders(linea_separada);
-                contador++;
+            String [] choppedLine= sc.nextLine().split(",");
+            if(count==0){
+                table.addHeaders(choppedLine);
+                count++;
             }else{
-                RowWithLabel fila = new RowWithLabel();
-                String etiqueta = linea_separada[linea_separada.length - 1];
-                for(int i=0;i<linea_separada.length-1;i++){
-                    fila.addRow(Double.parseDouble(linea_separada[i]));
+                RowWithLabel row = new RowWithLabel();
+                String label = choppedLine[choppedLine.length - 1];
+                for(int i=0;i<choppedLine.length-1;i++){
+                    row.addRow(Double.parseDouble(choppedLine[i]));
                 }
-                if (!tabla.getLabelsToIndex().containsKey(etiqueta)) {
+                if (!table.getLabelsToIndex().containsKey(label)) {
                     numberClass++;
-                    fila.addNumberClass(numberClass);
-                    tabla.addLabelsToIndex(etiqueta,numberClass);
+                    row.addNumberClass(numberClass);
+                    table.addLabelsToIndex(label,numberClass);
                 } else {
-                    numberClass = tabla.getLabelsToIndex().get(etiqueta);
-                    fila.addNumberClass(numberClass);
+                    numberClass = table.getLabelsToIndex().get(label);
+                    row.addNumberClass(numberClass);
                 }
-                tabla.addLine(fila);
+                table.addLine(row);
             }
         }
         sc.close();
-        return tabla;
+        return table;
     }
 }

@@ -10,29 +10,29 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class TableTest {
     CSV myCSV;
-    Table tabla;
-    List<String> cabecera;
-    List<Double> linea0;
-    List<Double> linea1;
-    List<Double> linea2;
+    Table table;
+    List<String> header;
+    List<Double> line0;
+    List<Double> line1;
+    List<Double> line2;
     @BeforeEach
     void setUp() throws FileNotFoundException {
         myCSV=new CSV();
-        tabla=myCSV.readTable("miles_dollars.csv");
+        table=myCSV.readTable("miles_dollars.csv");
 
-        cabecera=new ArrayList<>();
-        linea0=new ArrayList<>();
-        linea1=new ArrayList<>();
-        linea2=new ArrayList<>();
+        header=new ArrayList<>();
+        line0=new ArrayList<>();
+        line1=new ArrayList<>();
+        line2=new ArrayList<>();
 
-        linea0.add(1849.0);
-        linea0.add(2332.0);
-        linea1.add(2468.0);
-        linea1.add(3694.0);
-        linea2.add(3466.0);
-        linea2.add(4244.0);
-        cabecera.add("Miles");
-        cabecera.add("Dollars");
+        line0.add(1849.0);
+        line0.add(2332.0);
+        line1.add(2468.0);
+        line1.add(3694.0);
+        line2.add(3466.0);
+        line2.add(4244.0);
+        header.add("Miles");
+        header.add("Dollars");
 
     }
 
@@ -42,22 +42,22 @@ class TableTest {
 
     @Test
     void getRowAt() { //El número que se le asigna a cada fila es correcto
-        assertEquals( linea0,tabla.getRowAt(4).getData());
-        assertEquals( linea1,tabla.getRowAt(9).getData());
-        assertEquals( linea2,tabla.getRowAt(14).getData());
+        assertEquals( line0,table.getRowAt(4).getData());
+        assertEquals( line1,table.getRowAt(9).getData());
+        assertEquals( line2,table.getRowAt(14).getData());
     }
 
     @Test
-    void getFilas() {
-        assertEquals(25,tabla.getRows().size());
+    void getRows() {
+        assertEquals(25,table.getRows().size());
     }
 
     @Test
-    void getColumnas() {
-        assertEquals(2,tabla.getHeaders().size());
+    void getColumns() {
+        assertEquals(2,table.getHeaders().size());
     }
     @Test
-    void comprobarCabeceras() {
-        assertEquals(cabecera, tabla.getHeaders());
+    void checkHeaders() {
+        assertEquals(header, table.getHeaders());
     }
 }

@@ -12,8 +12,8 @@ public class TableWithLabels extends Table{
     public RowWithLabel getRowAt(int n) {
         return (RowWithLabel) super.getRowAt(n);
     }
-    public void addLabelsToIndex(String etiqueta, int numberClass){
-        labelsToIndex.put(etiqueta,numberClass);
+    public void addLabelsToIndex(String label, int numberClass){
+        labelsToIndex.put(label,numberClass);
     }
     public Map<String, Integer> getLabelsToIndex() {
         return labelsToIndex;

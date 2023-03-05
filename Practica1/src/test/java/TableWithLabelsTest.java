@@ -11,39 +11,39 @@ import static org.junit.jupiter.api.Assertions.*;
 class TableWithLabelsTest {
     CSV myCSV;
     TableWithLabels table;
-    List<String> cabecera;
-    List<Double> linea0;
-    List<Double> linea1;
-    List<Double> linea2;
+    List<String> header;
+    List<Double> line0;
+    List<Double> line1;
+    List<Double> line2;
     @BeforeEach
     void setUp() throws FileNotFoundException {
         myCSV= new CSV();
         table=myCSV.readTableWithLabels("iris.csv");
 
-        cabecera=new ArrayList<>();
-        cabecera.add("sepal length");
-        cabecera.add("sepal width");
-        cabecera.add("petal length");
-        cabecera.add("petal width");
-        cabecera.add("class");
+        header=new ArrayList<>();
+        header.add("sepal length");
+        header.add("sepal width");
+        header.add("petal length");
+        header.add("petal width");
+        header.add("class");
 
-        linea0=new ArrayList<>();
-        linea0.add(5.0);
-        linea0.add(3.6);
-        linea0.add(1.4);
-        linea0.add(0.2);
+        line0=new ArrayList<>();
+        line0.add(5.0);
+        line0.add(3.6);
+        line0.add(1.4);
+        line0.add(0.2);
 
-        linea1=new ArrayList<>();
-        linea1.add(5.7);
-        linea1.add(4.4);
-        linea1.add(1.5);
-        linea1.add(0.4);
+        line1=new ArrayList<>();
+        line1.add(5.7);
+        line1.add(4.4);
+        line1.add(1.5);
+        line1.add(0.4);
 
-        linea2=new ArrayList<>();
-        linea2.add(5.0);
-        linea2.add(3.4);
-        linea2.add(1.5);
-        linea2.add(0.2);
+        line2=new ArrayList<>();
+        line2.add(5.0);
+        line2.add(3.4);
+        line2.add(1.5);
+        line2.add(0.2);
     }
 
     @AfterEach
@@ -52,12 +52,12 @@ class TableWithLabelsTest {
 
     @Test
     void getRowAt() {
-        assertEquals(linea0,table.getRowAt(4).getData());
-        assertEquals(linea1,table.getRowAt(15).getData());
-        assertEquals(linea2,table.getRowAt(7).getData());
+        assertEquals(line0,table.getRowAt(4).getData());
+        assertEquals(line1,table.getRowAt(15).getData());
+        assertEquals(line2,table.getRowAt(7).getData());
     }
     @Test
-    void numeroCorrecto() {
+    void correctNumber() {
         assertEquals(1,table.getRowAt(4).getNumberClass());
         assertEquals(1,table.getRowAt(15).getNumberClass());
         assertEquals(1,table.getRowAt(7).getNumberClass());
@@ -66,15 +66,15 @@ class TableWithLabelsTest {
         assertEquals(2, table.getRowAt(89).getNumberClass());
     }
     @Test //Número de filas leido
-    void getFilas() {
+    void getRows() {
         assertEquals(150,table.getRows().size());
     }
     @Test //Número de columnas leido
-    void getColumnas() {
+    void getColumns() {
         assertEquals(5,table.getHeaders().size());
     }
     @Test
-    void comprobarCabeceras() {
-        assertEquals(cabecera,table.getHeaders());
+    void checkHeaders() {
+        assertEquals(header,table.getHeaders());
     }
 }
